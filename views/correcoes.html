@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block link %}
+{% endblock %}
+
+{% block body %}
+
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+<h1>correções</h1>
+{% include('form_base.html') %}
+
+{% endblock %}
+
+{% block script %}
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-esm-min.js"></script> -->
+<script src="/assets/js/correcoes.js?r={{rand}}" type="module"></script>
+<script>
+    $(document).ready(()=>{
+        let campos = document.querySelectorAll("input[type='number']");
+        [... campos].forEach(e=>{
+            $(`#${e.id}`).prop('min',0);
+        })
+    });
+</script>
+
+
+{% endblock %}

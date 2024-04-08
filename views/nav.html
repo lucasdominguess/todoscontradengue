@@ -1,0 +1,34 @@
+<div class="topnav" id="myTopnav">
+    {% if role is defined and role == 1 %}
+    <a id="home_users" href="{{ url_for('home_users') }}" class="active">Início</a>
+    <a id="monitorar_users" href="{{ url_for('monitor_users') }}" class="">Monitorar</a>
+    <a id="num_visitas_users" href="{{ url_for('visitas') }}">Número de visitas</a>
+        {% endif %}
+
+        {% if role is defined and role == 2 %}
+        <a id="home_gestor" href="{{ url_for('home_admin') }}" class="active">Início</a>
+        <a id="registro_bloqueio_gestor" href="{{ url_for('registro_bloqueio') }}" class="">Registrar ruas</a>
+        <a id="monitorar_gestor" href="{{ url_for('monitor_users') }}" class="">Monitorar</a>
+        <a id="num_visitas_gestor" href="{{ url_for('visitas') }}">Número de visitas</a>
+        <a id="rotinas_gestor" href="{{ url_for('rotinas') }}" class="">Rotinas</a>
+        <a id="monitoramento_dengue_gestor" href="{{ url_for('monitoramento_dengue') }}" class="">Monitoramento dengue</a>
+        {% endif %}
+
+        {% if role is defined and role > 2 %}
+        <a id="monitor_admin" href="{{ url_for('monitor') }}" class="active">Monitorar visitas</a>
+        <a id="visitas_admin" href="{{ url_for('visitas') }}">Número de visitas</a>
+        <a id="rotinas_admin" href="{{ url_for('rotinas') }}" class="">Rotinas</a>
+        <a id="monitoramento_dengue_admin" href="{{ url_for('monitoramento_dengue_view') }}" class="">Monitoramento dengue</a>
+        {% endif %}
+
+        {% if role is defined and role == 3 %}
+        <a id="scaden_sms" href="{{ url_for('scaden') }}" class="active">Scaden</a>
+        <a id="listagem_sms" href="{{ url_for('listagem') }}" class="">Listagem de pendências</a>
+
+        {% endif %}
+        
+    <a href="{{ url_for('logout') }}">Sair</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>

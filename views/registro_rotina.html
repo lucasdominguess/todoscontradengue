@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" href="/assets/css/registro_rotina.css">
+{% endblock %}
+
+{% block body %}
+
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+
+<p id="nome_user">{{username}}</p>
+<h1 class="text-center">Registro de rotinas</h1>
+
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <form id="form_rotina">
+                <div class="form-group">
+                    <label for>Data</label>
+                    <input type="date" class="form-control"
+                        name="data_acao" id="data_acao">
+                </div>
+
+                <div class="form-group">
+                    <label for>Equipe</label>
+                    <select name="equipe" id="equipe" class="form-control">
+                        <option value="" selected disabled>Selecione</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for>QUANTAS CASAS FORAM VISITADAS?</label>
+                    <input type="number" min="0" class="form-control"
+                        name="quantas_casas_visitadas" id="quantas_casas_visitadas">
+                        <input type="hidden" id="id_rotina" name="id_rotina">
+                </div>
+                <div class="form-group">
+                    <label for>QUANTAS CASAS TINHAM CRIADOUROS ?</label>
+                    <input type="number" min="0" class="form-control"
+                        name="quantas_casas_com_criadouros" id="quantas_casas_com_criadouros">
+                </div>
+                <div class="form-group">
+                    <label for>QUANTAS PESSOAS RECEBERAM ORIENTAÇÃO?
+                    </label>
+                    <input type="number" min="0" class="form-control"
+                        name="quantas_pessoas_orientadas" id="quantas_pessoas_orientadas">
+                </div>
+                <div class="form-group text-center">
+                    <i id="cadastrar_rotina"
+                        class="fa-solid fa-share-from-square btn-lg"></i>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="col-12 col-md-9 border_table" id="div_tb_rotinas">
+            {{ include('tb_rotinas.html') }}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/assets/js/registro_rotina.js?r={{rand}}"></script>
+{% endblock %}

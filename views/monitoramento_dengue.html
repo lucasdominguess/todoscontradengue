@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" href="/assets/css/monitoramento_dengue.css">
+{% endblock %}
+
+{% block body %}
+
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+<!-- The Modal -->
+
+<p id="nome_user">{{username}}</p>
+<h1 class="text-center">Monitoramento dengue</h1>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-3 col-sm-12 mb-4" id="div_form_monitoramento_dengue">
+            <form id="form_monitor_dengue">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for>Data</label>
+                            <input type="date" class="form-control"
+                                name="data_declarada" id="data_declarada">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for>Total de casos atendidos<br>com suspeita de dengue</label>
+                            <input type="hidden" id="id_monitoramento" name="id_monitoramento">
+                            <input type="number" max="32768" min="0"
+                                class="form-control text-center"
+                                name="total_de_casos_atendidos_com_suspeita_de_dengue"
+                                id="total_de_casos_atendidos_com_suspeita_de_dengue">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for>Total de casos atendidos<br>confirmados para dengue</label>
+                            <input type="number" max="32768" min="0"
+                                class="form-control text-center"
+                                name="total_de_casos_atendidos_confirmados_para_dengue"
+                                id="total_de_casos_atendidos_confirmados_para_dengue">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for>Total de testes rapidos<br>de dengue realizados</label>
+                            <input type="number" max="32768" min="0"
+                                class="form-control text-center"
+                                name="total_de_testes_rapido_de_dengue_realizados"
+                                id="total_de_testes_rapido_de_dengue_realizados">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for>Total de testes rapidos<br>de dengue positivos</label>
+                            <input type="number" max="32768" min="0"
+                                class="form-control text-center"
+                                name="total_de_testes_rapido_de_dengue_positivos"
+                                id="total_de_testes_rapido_de_dengue_positivos">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for>Estoque diario dos testes<br>rapidos de dengue</label>
+                            <input type="number" max="32768" min="0"
+                                class="form-control text-center"
+                                name="estoque_diario_dos_testes_rapidos_de_dengue"
+                                id="estoque_diario_dos_testes_rapidos_de_dengue">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for>TOTAL DE ATENDIMENTOS DE DEMANDA ESPONTÂNEA<br>REALIZADOS NA UNIDADE (DENGUE E OUTROS)</label>
+                            <input type="number" max="32768" min="0"
+                                class="form-control text-center"
+                                name="total_de_atendimentos_realizados_pela_unidade"
+                                id="total_de_atendimentos_realizados_pela_unidade">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-sm btn-success"
+                            id="btn_cad_monitoramento_dengue">ENVIAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-9 col-sm-12 border_table" id="div_tb_boletim_gestor">
+            {{ include('tb_boletim_gestor.html') }}
+            
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="/assets/js/monitoramento_dengue.js?r={{rand}}"></script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" href="/assets/css/registro_bloqueio.css?r={{rand}}">
+{% endblock %}
+
+{% block body %}
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+<P id="nome_user">{{username}}</P>
+<h1 class="text-center">Registrar ruas</h1>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <form id="form_logradouros">
+                <div class="form-group">
+                    <label for="">Sinan</label>
+                    <input type="text" class="form-control" name="sinan" id="sinan" maxlength="7">
+                    <input type="hidden" id="id_logradouro" name="id_logradouro">
+                </div>
+                <div class="form-group">
+                    <label for="">Quarteirao</label>
+                    <input type="text" class="form-control" name="quarteirao" id="quarteirao" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label for="">Logradouro</label>
+                    <textarea class="form-control" name="logradouro" id="logradouro" cols="30" rows="2"></textarea>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <button type="button" class="btn btn-sm btn-success" id="btn_cad_logradouro">ENVIAR</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-12 col-md-9">
+            <div id="table_data" class="table-responsive">
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-esm-min.js"></script> -->
+<script src="/assets/js/registro_bloqueio.js?r={{rand}}" type="module"></script>
+{% endblock %}

@@ -1,0 +1,13 @@
+#form_monitor_dengue{
+    border: 1pt solid grey;
+    padding: 12px;
+    background-color: var(--table-cabecalho-color);
+    border-radius: 12px;
+    box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.75);
+}
+
+#form_monitor_dengue label {
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}

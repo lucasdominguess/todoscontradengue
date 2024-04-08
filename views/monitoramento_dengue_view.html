@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" href="/assets/css/monitoramento_dengue.css">
+{% endblock %}
+
+{% block body %}
+
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+<!-- The Modal -->
+
+<p id="nome_user">{{username}}</p>
+<h1 class="text-center">visualização monitoramentos admin</h1>
+
+<div class="container mb-4">
+
+    <div class="row">
+      
+        <div class="col-12 border_table" id="div_tb_boletim_gestor">
+            {{ include('tb_boletim_gestor.html') }}
+            
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="/assets/js/monitoramento_dengue.js?r={{rand}}"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" href="/assets/css/admin.css?r={{rand}}">
+{% endblock %}
+
+{% block body %}
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+<P id="nome_user">{{username}}</P>
+<h1 class="text-center">Número de visitas</h1>
+
+
+<div class="container-fluid mt-4" id="div_table_visitas_consolidado">
+    <div class="row">
+        <div id="table_data" class="table-responsive">
+                
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-esm-min.js"></script> -->
+<script src="/assets/js/visitas.js?r={{rand}}" type="module"></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="/assets/css/index.css">
+{% endblock %}
+
+
+{% block body %}
+
+</script>
+
+    <section id="left">
+        
+            <img id="logo_prefeitura" src="/assets/img/side_logos.png" alt="">
+            <div class="container-fluid" id="div_form">
+               <div class="row">
+                  <div class="col-12 col-md-6 offset-md-3">
+                     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+                     <form id="form_user">
+                        <div class="form-group" id="div_login">
+                            <label class="d-block text-center" for="user_login">USUÁRIO</label>
+                            <input type="text" name="user_login" id="user_login" value="" class="text-center">
+        
+                        </div>
+                        <input type="hidden" name="{{csrf.keys.name}}" value="{{csrf.name}}">
+                        <input type="hidden" name="{{csrf.keys.value}}" value="{{csrf.value}}">
+                        <div class="form-group" id="div_password">
+                            <label class="d-block text-center" for="user_password">SENHA</label>
+                            <input type="text" name="user_password" id="user_password" value="" class="text-center">
+        
+                        </div>
+                        <div class="form-group text-center mt-4">
+                            <!-- <div class="g-recaptcha text-center" data-sitekey="6LeLd1EpAAAAAIwsGU1xPcbkVJI0TSfjdqdVKOqF"></div> -->
+        
+                            <i id="btn_entrar" class="fa-solid fa-share-from-square btn-lg"></i>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+        
+    </section>
+    <section id="right">
+
+        
+        
+     </section>
+
+
+
+{% endblock %}
+
+{% block script %}
+
+<script src="/assets/js/index.js?r={{rand}}"></script>
+{% endblock %}

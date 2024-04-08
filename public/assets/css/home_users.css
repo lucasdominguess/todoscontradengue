@@ -1,0 +1,21 @@
+#img_link_agente_1{
+    width: 300px;
+    border: 1pt solid #14acb9;
+}
+
+#img_link_agente_2{
+    border: 1pt solid #14acb9;
+}
+
+#img_fundo{
+    z-index: -5;
+    width: calc(100vw + 55px);
+    display: block;
+    position: absolute;
+    top: -50px;
+    height: 95vh;
+    left: -55px;
+    opacity: .6;
+
+}
+

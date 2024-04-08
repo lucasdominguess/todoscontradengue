@@ -1,0 +1,250 @@
+<form id="form_user_daily">
+
+{% if role is defined and role > 1 %}
+{% include('extra_inputs.html') %}
+{% endif %}
+
+	
+	
+	
+	
+	
+	
+	
+<style>
+    input[type='number']{
+        text-align: center;
+    }
+</style>
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm-12 col-md-5 offset-md-1">
+            <h4>Enfermaria</h4>
+            <table class="table table-stripped table-bordered">
+        <thead>
+          <tr>
+            <th>Faixa etária sexo/gest</th>
+            <th>suspeita</th>
+            <th>internados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-9 anos</td>
+            <td><input type="number" class="form-control" id="enfermaria_suspeito_0-9" name="enfermaria_suspeito_0-9"></td>
+            <td><input type="number" class="form-control" id="enfermaria_internado_0-9" name="enfermaria_internado_0-9"></td>
+          </tr>
+          <tr>
+            <td>10-19 anos</td>
+            <td><input type="number" class="form-control" id="enfermaria_suspeito_10-19" name="enfermaria_suspeito_10-19"></td>
+            <td><input type="number" class="form-control" id="enfermaria_internado_10-19" name="enfermaria_internado_10-19"></td>
+          </tr>
+          <tr>
+            <td>20-59 anos</td>
+            <td><input type="number" class="form-control" id="enfermaria_suspeito_20-59" name="enfermaria_suspeito_20-59"></td>
+            <td><input type="number" class="form-control" id="enfermaria_internado_20-59" name="enfermaria_internado_20-59"></td>
+          </tr>
+          <tr>
+            <td>60+ anos</td>
+            <td><input type="number" class="form-control" id="enfermaria_suspeito_60" name="enfermaria_suspeito_60"></td>
+            <td><input type="number" class="form-control" id="enfermaria_internado_60" name="enfermaria_internado_60"></td>
+          </tr><tr>
+            <td>Masculino</td>
+            <td><input type="number" class="form-control" id="enfermaria_suspeito_masculino" name="enfermaria_suspeito_masculino"></td>
+            <td><input type="number" class="form-control" id="enfermaria_internado_masculino" name="enfermaria_internado_masculino"></td>
+          </tr><tr>
+            <td>Feminino</td>
+            <td><input type="number" class="form-control" id="enfermaria_suspeito_feminino" name="enfermaria_suspeito_feminino"></td>
+            <td><input type="number" class="form-control" id="enfermaria_internado_feminino" name="enfermaria_internado_feminino"></td>
+          </tr><tr>
+            <td>Gestante</td>
+            <td><input type="number" class="form-control" id="enfermaria_suspeito_gestante" name="enfermaria_suspeito_gestante"></td>
+            <td><input type="number" class="form-control" id="enfermaria_internado_gestante" name="enfermaria_internado_gestante"></td>
+          </tr>
+        </tbody>
+      </table>                    
+        </div>
+
+        <div class="col col-md-5 offset-md-1">
+            <h4>UTI</h4>
+            <table class="table table-stripped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Faixa etária sexo/gest</th>
+                    <th>suspeita</th>
+                    <th>internados</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0-9 anos</td>
+                    <td><input type="number" class="form-control" id="uti_suspeito_0-9" name="uti_suspeito_0-9"></td>
+                    <td><input type="number" class="form-control" id="uti_internado_0-9" name="uti_internado_0-9"></td>
+                  </tr>
+                  <tr>
+                    <td>10-19 anos</td>
+                    <td><input type="number" class="form-control" id="uti_suspeito_10-19" name="uti_suspeito_10-19"></td>
+                    <td><input type="number" class="form-control" id="uti_internado_10-19" name="uti_internado_10-19"></td>
+                  </tr>
+                  <tr>
+                    <td>20-59 anos</td>
+                    <td><input type="number" class="form-control" id="uti_suspeito_20-59" name="uti_suspeito_20-59"></td>
+                    <td><input type="number" class="form-control" id="uti_internado_20-59" name="uti_internado_20-59"></td>
+                  </tr>
+                  <tr>
+                    <td>60+ anos</td>
+                    <td><input type="number" class="form-control" id="uti_suspeito_60" name="uti_suspeito_60"></td>
+                    <td><input type="number" class="form-control" id="uti_internado_60" name="uti_internado_60"></td>
+                  </tr><tr>
+                    <td>Masculino</td>
+                    <td><input type="number" class="form-control" id="uti_suspeito_masculino" name="uti_suspeito_masculino"></td>
+                    <td><input type="number" class="form-control" id="uti_internado_masculino" name="uti_internado_masculino"></td>
+                  </tr><tr>
+                    <td>Feminino</td>
+                    <td><input type="number" class="form-control" id="uti_suspeito_feminino" name="uti_suspeito_feminino"></td>
+                    <td><input type="number" class="form-control" id="uti_internado_feminino" name="uti_internado_feminino"></td>
+                  </tr><tr>
+                    <td>Gestante</td>
+                    <td><input type="number" class="form-control" id="uti_suspeito_gestante" name="uti_suspeito_gestante"></td>
+                    <td><input type="number" class="form-control" id="uti_internado_gestante" name="uti_internado_gestante"></td>
+                  </tr>
+                </tbody>
+              </table>              
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-5 offset-md-1">
+            <h4>Transferência</h4>
+            <table class="table table-stripped table-bordered">
+        <thead>
+          <tr>
+            <th>Faixa etária sexo/gest</th>
+            <th>suspeita</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-9 anos</td>
+            <td><input type="number" class="form-control" id="transferencia_suspeito_0-9" name="transferencia_suspeito_0-9"></td>
+          </tr>
+          <tr>
+            <td>10-19 anos</td>
+            <td><input type="number" class="form-control" id="transferencia_suspeito_10-19" name="transferencia_suspeito_10-19"></td>
+          </tr>
+          <tr>
+            <td>20-59 anos</td>
+            <td><input type="number" class="form-control" id="transferencia_suspeito_20-59" name="transferencia_suspeito_20-59"></td>
+          </tr>
+          <tr>
+            <td>60+ anos</td>
+            <td><input type="number" class="form-control" id="transferencia_suspeito_60" name="transferencia_suspeito_60"></td>
+          </tr><tr>
+            <td>Masculino</td>
+            <td><input type="number" class="form-control" id="transferencia_suspeito_masculino" name="transferencia_suspeito_masculino"></td>
+          </tr><tr>
+            <td>Feminino</td>
+            <td><input type="number" class="form-control" id="transferencia_suspeito_feminino" name="transferencia_suspeito_feminino"></td>
+          </tr><tr>
+            <td>Gestante</td>
+            <td><input type="number" class="form-control" id="transferencia_suspeito_gestante" name="transferencia_suspeito_gestante"></td>
+          </tr>
+        </tbody>
+      </table>                    
+        </div>
+
+        <div class="col col-md-5 offset-md-1">
+            <h4>Alta</h4>
+            <table class="table table-stripped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Faixa etária sexo/gest</th>
+                    <th>suspeita</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0-9 anos</td>
+                    <td><input type="number" class="form-control" id="alta_suspeito_0-9" name="alta_suspeito_0-9"></td>
+                  </tr>
+                  <tr>
+                    <td>10-19 anos</td>
+                    <td><input type="number" class="form-control" id="alta_suspeito_10-19" name="alta_suspeito_10-19"></td>
+                  </tr>
+                  <tr>
+                    <td>20-59 anos</td>
+                    <td><input type="number" class="form-control" id="alta_suspeito_20-59" name="alta_suspeito_20-59"></td>
+                  </tr>
+                  <tr>
+                    <td>60+ anos</td>
+                    <td><input type="number" class="form-control" id="alta_suspeito_60" name="alta_suspeito_60"></td>
+                  </tr><tr>
+                    <td>Masculino</td>
+                    <td><input type="number" class="form-control" id="alta_suspeito_masculino" name="alta_suspeito_masculino"></td>
+                  </tr><tr>
+                    <td>Feminino</td>
+                    <td><input type="number" class="form-control" id="alta_suspeito_feminino" name="alta_suspeito_feminino"></td>
+                  </tr><tr>
+                    <td>Gestante</td>
+                    <td><input type="number" class="form-control" id="alta_suspeito_gestante" name="alta_suspeito_gestante"></td>
+                  </tr>
+                </tbody>
+              </table>              
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-5 offset-md-1">
+            <h4>Óbito</h4>
+            <table class="table table-stripped table-bordered">
+        <thead>
+          <tr>
+            <th>Faixa etária sexo/gest</th>
+            <th>suspeita</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-9 anos</td>
+            <td><input type="number" class="form-control" id="obitos_suspeito_0-9" name="obitos_suspeito_0-9"></td>
+          </tr>
+          <tr>
+            <td>10-19 anos</td>
+            <td><input type="number" class="form-control" id="obitos_suspeito_10-19" name="obitos_suspeito_10-19"></td>
+          </tr>
+          <tr>
+            <td>20-59 anos</td>
+            <td><input type="number" class="form-control" id="obitos_suspeito_20-59" name="obitos_suspeito_20-59"></td>
+          </tr>
+          <tr>
+            <td>60+ anos</td>
+            <td><input type="number" class="form-control" id="obitos_suspeito_60" name="obitos_suspeito_60"></td>
+          </tr><tr>
+            <td>Masculino</td>
+            <td><input type="number" class="form-control" id="obitos_suspeito_masculino" name="obitos_suspeito_masculino"></td>
+          </tr><tr>
+            <td>Feminino</td>
+            <td><input type="number" class="form-control" id="obitos_suspeito_feminino" name="obitos_suspeito_feminino"></td>
+          </tr><tr>
+            <td>Gestante</td>
+            <td><input type="number" class="form-control" id="obitos_suspeito_gestante" name="obitos_suspeito_gestante"></td>
+          </tr>
+        </tbody>
+      </table>                    
+        </div>
+
+    </div>
+</div>
+
+    
+</form>
+
+<script>
+  let campos = document.querySelectorAll('input[type="number"]');
+
+[... campos].forEach(e=>{
+    e.setAttribute('min',0)
+});
+</script>

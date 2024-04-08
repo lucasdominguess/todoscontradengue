@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block link %}
+{% endblock %}
+
+{% block body %}
+
+
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Detalhes da visita</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+                <div class="col col-md-6 offset-md-3">
+                    <form id="form_visitas">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Sinan</label>
+                                    <input type="hidden" name="id_logradouro" id="idlogradouro">
+                                    <input type="text" readonly class="form-control" name="sinan" id="sinan">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Data</label>
+                                    <input type="date" class="form-control" name="dataref" id="dataref" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Nº quarteirão</label>
+                                    <input type="text" readonly class="form-control" name="quarteirao" id="quarteirao">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Logradouro</label>
+                                    <input type="text" readonly class="form-control" name="logradouro" id="logradouro">
+                                </div>
+                            </div>
+        
+                        </div>
+        
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Nº logradouro</label>
+                                    <input type="number" class="form-control" name="num_logradouro" id="num_logradouro">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Complemento</label>
+                                    <input type="text" class="form-control" name="complemento_logradouro"
+                                        id="complemento_logradouro">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3" id="row_0">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label style="display: block;">Imóvel visitado ?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input onchange="fnExpand(this)" class="form-check-input" type="radio"
+                                            name="imovel_visitado" id="imovel_visitado_sim" value="1">
+                                        <label class="form-check-label" for="imovel_visitado_sim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input onchange="fnExpand(this)" class="form-check-input" type="radio"
+                                            name="imovel_visitado" id="imovel_visitado_nao" value="0">
+                                        <label class="form-check-label" for="imovel_visitado_nao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 d-none imovel_visitado_child reset">
+                                <div class="form-group">
+                                    <label style="display: block;">Imóvel vistoriado ?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input onchange="fnExpand(this)" class="form-check-input" type="radio"
+                                            name="imovel_vistoriado" id="imovel_vistoriado_sim" value="1">
+                                        <label class="form-check-label" for="imovel_vistoriado_sim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input onchange="fnExpand(this)" class="form-check-input" type="radio"
+                                            name="imovel_vistoriado" id="imovel_vistoriado_nao" value="0">
+                                        <label class="form-check-label" for="imovel_vistoriado_nao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3" id="row_1">
+                            <div class="col-12 col-md-6 d-none reset imovel_visitado_child imovel_vistoriado_child">
+                                <div class="form-group">
+                                    <label style="display: block;">Identificado criadouros ?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input onchange="fnExpand(this)" class="form-check-input" type="radio"
+                                            name="identificado_criadouros" id="identificado_criadouros_sim" value="1">
+                                        <label class="form-check-label" for="identificado_criadouros_sim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input onchange="fnExpand(this)" class="form-check-input" type="radio"
+                                            name="identificado_criadouros" id="identificado_criadouros_nao" value="0">
+                                        <label class="form-check-label" for="identificado_criadouros_nao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 d-none reset identificado_criadouros_child imovel_visitado_child imovel_vistoriado_child">
+                                <div class="form-group">
+                                    <label style="display: block;">Foram eliminados os criadouros ?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="eliminado_criadouros"
+                                            id="eliminado_criadouros_sim" value="1">
+                                        <label class="form-check-label" for="eliminado_criadouros_sim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="eliminado_criadouros"
+                                            id="eliminado_criadouros_nao" value="0">
+                                        <label class="form-check-label" for="eliminado_criadouros_nao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+        
+                        <div class="row mt-3 d-none reset identificado_criadouros_child imovel_visitado_child imovel_vistoriado_child" id="row_2">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label style="display: block;">Pendência - Necessidade de Touca de Caixa
+                                        d'água
+                                        ?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="necessidade_touca"
+                                            id="necessidade_touca_sim" value="1">
+                                        <label class="form-check-label" for="necessidade_touca_sim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="necessidade_touca"
+                                            id="necessidade_touca_nao" value="0">
+                                        <label class="form-check-label" for="necessidade_touca_nao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label style="display: block;">Pendência - Criadouro(s) que não foi possível
+                                        de
+                                        remover
+                                        ?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="criadouros_impossivel_remover"
+                                            id="criadouros_impossivel_remover_sim" value="1">
+                                        <label class="form-check-label" for="criadouros_impossivel_remover_sim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="criadouros_impossivel_remover"
+                                            id="criadouros_impossivel_remover_nao" value="0">
+                                        <label class="form-check-label" for="criadouros_impossivel_remover_nao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group text-center">
+                                        <button type="button" class="btn btn-sm btn-success" id="btn_cadastrar_visita">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <P id="nome_user">{{username}}</P>
+<h1 class="text-center">Registro de visitas</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="table_data" class="table-responsive">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- {{ include('form_visita.html') }} -->
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/assets/js/registro_visita.js?r={{rand}}"></script>
+{% endblock %}

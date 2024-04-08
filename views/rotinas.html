@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block link %}
+<link rel="stylesheet" href="/assets/css/registro_rotina.css">
+{% endblock %}
+
+{% block body %}
+
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+
+<p id="nome_user">{{username}}</p>
+<h1 class="text-center">Visualização de rotinas lançadas</h1>
+
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12 border_table" id="div_tb_rotinas">
+            {{ include('tb_rotinas.html') }}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/assets/js/rotinas.js?r={{rand}}"></script>
+{% endblock %}

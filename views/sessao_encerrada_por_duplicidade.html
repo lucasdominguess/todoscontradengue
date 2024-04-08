@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block link %}
+{% endblock %}
+
+{% block body %}
+
+<h1>Sua sessão foi encerrada por duplicidade</h1>
+
+{% endblock %}
+
+{% block script %}
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-esm-min.js"></script> -->
+
+<script>
+    setTimeout(() => {
+        window.location.href = '/'
+    }, 10000);
+</script>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+#form_rotina{
+    border: 1pt solid grey;
+    padding: 12px;
+    background-color: var(--table-cabecalho-color);
+    border-radius: 12px;
+    box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.75);
+}
+
+#form_rotina label {
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}
+
+#cadastrar_rotina{
+    font-size: 22pt;
+    color: green;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
