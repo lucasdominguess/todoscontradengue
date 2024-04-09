@@ -7,9 +7,22 @@ use App\Domain\User\User;
 final class HandleSenderAction extends SenderAction
 {
     protected function Action():Response
-    {
+    {   
         
         global $env;
+
+        $name = $_SESSION[User::USER_NAME];
+        $pattern = '/^(ama-)?ubs\s[a-z]{1,}.+$/i';
+        if(isset($name) == preg_match($pattern,$name)){
+            switch ($_SESSION[User::USER_ROLE]) {
+                case 1:
+                    return $this->response->withHeader("Location","/users/acessouser")->withStatus(302);
+                case 2:
+                    return $this->response->withHeader("Location","/admin/acessoadm")->withStatus(302);
+            }
+ 
+        }
+
         if (!isset($_SESSION[User::USER_ID])) {
             # code...
             return $this->response->withHeader("Location","/")->withStatus(302);

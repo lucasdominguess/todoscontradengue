@@ -80,6 +80,10 @@ return function (App $app)use ($resposeFactory) {
             $view = Twig::fromRequest($request);
             return $view->render($response, 'monitor.html');
         })->setName('monitor_users');
+        $group->get('/acessouser', function (Request $request, Response $response) {
+            $view = Twig::fromRequest($request);
+            return $view->render($response, 'home_ubs_user.html');
+        });
         $group->get("/listar_logradouros",ListaLogradouroAction::class);
         $group->get("/listar_consolidado_visitas",ConsolidadoVisitaAction::class);
         $group->get("/listar_visitas",ListaVisitaAction::class);
@@ -88,6 +92,8 @@ return function (App $app)use ($resposeFactory) {
         $group->post("/cadastrar_acao_rotina",SaveAcoesRotinaAction::class);
         $group->get("/listar_acoes_rotina",ListarAcoesRotina::class);
         $group->get("/listar_ines",ListIneAction::class);
+
+
     })->add(new UserMiddleware());
 
     $app->group('/admin', function (Group $group) {
@@ -138,6 +144,15 @@ return function (App $app)use ($resposeFactory) {
             $view = Twig::fromRequest($request);
             return $view->render($response, 'correcoes.html');
         })->setName('correcoes');
+        $group->get('/acessoadm', function (Request $request, Response $response) {
+            $view = Twig::fromRequest($request);
+            return $view->render($response, 'home_ubs_adm.html');
+        });
     })->add(new AdminMiddleware());
 
+    // -------------------------------
+    
+   
+
+   
 };

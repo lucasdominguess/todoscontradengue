@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% block link %}
+{% endblock %}
+ 
+{% block body %}
+ 
+ 
+
+ 
+{% if hide_nav is not defined %}
+{{ include('nav.html') }}
+{% endif %}
+
+<P id="nome_user">{{username}}</P>
+<div class="container "> 
+    
+    <h1>Pagina de acesso Ubs nivel <b>Usuario!</b></h1>
+</div>
+ 
+{% endblock %}
+ 
+{% block script %}
+ 
+{% endblock %}
